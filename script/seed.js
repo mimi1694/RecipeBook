@@ -6,27 +6,36 @@ async function seed () {
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'mimi@email.com', password: '123'}),
-    User.create({email: 'scott@email.com', password: '123'})
+    User.create({
+      email: 'mimi@email.com', 
+      password: '123'
+    }),
+    User.create({
+      email: 'scott@email.com', 
+      password: '123'
+    })
   ])
   const recipes = await Promise.all([
     Recipe.create({
       name: 'Mac & Cheese',
       ingredients: '1lb: macaroni, 1 cup: cheddar cheese, 1/2 cup: milk, 1tsp: salt, 1tsp: pepper',
       directions: 'Bring water to a boil./ Add macaroni and cook for 10 minutes./ Drain./ Add milk & cheese./ Stir until creamy./ Salt & pepper to taste',
-      imageUrl: '../public/macnchz.jpeg'
+      imageUrl: '../public/macnchz.jpeg',
+      userId: 1
     }),
     Recipe.create({
       name: 'Banana Bread',
       ingredients: '2: bananas, 2cups: flour, 3: eggs',
       directions: 'Mix all ingredients together./ Bake at 375 degrees for an hour and 20 min',
-      imageUrl: '../public/bnanabrd.jpg'
+      imageUrl: '../public/bnanabrd.jpg',
+      userId: 2
     }),
     Recipe.create({
       name: 'Oatmeal',
       ingredients: '1/2 cup: oatmeal, 1 cup: milk, 1 tbls: walnuts',
       directions: 'Microwave oatmeal and milk together for 4 minutes./ Top with walnuts.',
-      imageUrl: '../public/oatmeal.jpeg'
+      imageUrl: '../public/oatmeal.jpeg',
+      userId: 1
     })
   ])
   console.log(`seeded ${users.length} users`)
