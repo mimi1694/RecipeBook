@@ -6,5 +6,12 @@ router.get('/', (req, res, next) => {
     .then(recipes => res.json(recipes))
     .catch(next)
 })
+router.get('/userId', (req, res, next) => {
+    Recipe.findAll({
+        where: {
+            userId: req.params.userId
+        }
+    })
+})
 
 module.exports = router

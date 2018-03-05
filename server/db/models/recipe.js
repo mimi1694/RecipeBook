@@ -16,15 +16,13 @@ const Recipe = db.define('recipe', {
         type: Sequelize.TEXT,
         allowNull: true
     },
-    image: {
+    imageUrl: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false,
+        defaultValue: 'https://typeset-beta.imgix.net/lovelace/uploads/367/44d076f0-d354-0133-8308-06e18a8a4ae5.png'
     },
     dateAdded: {
-        type: Sequelize.VIRTUAL,
-        set () {
-            this.dateAdded = new Date().now
-        }
+        type: Sequelize.DATE
     }
 })
 
