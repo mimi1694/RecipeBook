@@ -13,6 +13,10 @@ const mapDispatch = (dispatch) => {
   return {
     loadData() {
       dispatch(fetchRecipesByUserID(store.getState().user.id))
+    },
+    addRecipe (evt){
+      evt.preventDefault()
+      return null
     }
   }
 }
@@ -36,6 +40,7 @@ class UserRecipes extends Component {
               })
             }
           </ul>
+          <button onClick={this.props.addRecipe}>Add Recipe</button>
       </div>
     )
   }

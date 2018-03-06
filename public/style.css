@@ -15,10 +15,12 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  
 }
 nav {
   margin-top: auto;
   margin-bottom: auto;
+  
 }
 
 form div {
@@ -30,4 +32,5 @@ form div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background: lightgrey
 }
