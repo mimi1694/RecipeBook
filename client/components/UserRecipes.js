@@ -32,9 +32,11 @@ class UserRecipes extends Component {
           <h3>My recipes:</h3>
           <ul>
             {
-              recipes.length && recipes.map(recipe => {
+              recipes.length ?
+              recipes.map(recipe => {
                 return (<li key={recipe.id}>{recipe.name}</li>)
               })
+              : <h5>No recipes to show</h5>
             }
           </ul>
           <button onClick={
