@@ -34,7 +34,6 @@ const Main = (props) => {
           }
         </nav>
       </div>
-      <hr />
       {children}
     </div>
   )

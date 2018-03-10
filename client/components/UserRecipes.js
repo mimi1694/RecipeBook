@@ -13,10 +13,6 @@ const mapDispatch = (dispatch) => {
   return {
     loadData() {
       dispatch(fetchRecipesByUserID(store.getState().user.id))
-    },
-    addRecipe (evt){
-      evt.preventDefault()
-      return null
     }
   }
 }
@@ -30,6 +26,7 @@ class UserRecipes extends Component {
   
   render (){
     const recipes = this.props.recipes
+    let showForm = false
     return (
       <div>
           <h3>My recipes:</h3>
@@ -40,7 +37,24 @@ class UserRecipes extends Component {
               })
             }
           </ul>
-          <button onClick={this.props.addRecipe}>Add Recipe</button>
+          <button onClick={
+            evt => {
+              evt.preventDefault()
+              showForm = true
+            }
+          }
+          >Add Recipe</button>
+          {
+            showForm &&
+            <div id="add-recipe-form">
+              <form>
+                Name:
+                <input type="text" name="recipename"/>
+                Ingredients:
+                <input type="text" name="ingredient"/>
+              </form>
+            </div>
+          }
       </div>
     )
   }
