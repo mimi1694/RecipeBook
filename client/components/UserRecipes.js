@@ -18,7 +18,7 @@ const mapDispatch = (dispatch) => {
 }
 
 class UserRecipes extends Component {
-  
+
   componentWillMount(){
     store.dispatch(fetchRecipesByUserID(this.props.user.id))
     .then(()=>{console.log(store.getState())})
@@ -26,7 +26,7 @@ class UserRecipes extends Component {
   
   render (){
     const recipes = this.props.recipes
-    let showForm = false
+    
     return (
       <div>
           <h3>My recipes:</h3>
@@ -39,24 +39,19 @@ class UserRecipes extends Component {
               : <h5>No recipes to show</h5>
             }
           </ul>
-          <button onClick={
-            evt => {
-              evt.preventDefault()
-              showForm = true
-            }
-          }
-          >Add Recipe</button>
-          {
-            showForm &&
-            <div id="add-recipe-form">
-              <form>
-                Name:
-                <input type="text" name="recipename"/>
-                Ingredients:
-                <input type="text" name="ingredient"/>
-              </form>
-            </div>
-          }
+          
+          <div id="add-recipe-form">
+            New Recipe:
+            <form>
+              Name:
+              <input type="text" name="recipename"/>
+              Ingredients:
+              <input type="text" name="ingredient"/>
+              Image URL:
+              <input type="text" name="image"/>
+            </form>
+          </div>
+          
       </div>
     )
   }
