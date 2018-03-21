@@ -49,6 +49,8 @@ class UserRecipes extends Component {
               <input type="text" name="ingredient"/>
               Image URL:
               <input type="text" name="image"/>
+              Directions:
+              <input type="text" name="directions"/>
             </form>
           </div>
           

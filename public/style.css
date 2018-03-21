@@ -38,3 +38,8 @@ form div {
   border-bottom-left-radius: .5em;
   border-bottom-right-radius: .5em;
 }
+
+#add-recipe-form form{
+  display: flex;
+  flex-direction: column;
+}
